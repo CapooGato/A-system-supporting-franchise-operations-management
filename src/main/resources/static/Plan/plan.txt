@@ -1,0 +1,32 @@
+Poniżej spis funkcjonalności z podziałem na franczyzodawcę i franczyzobiorcę:
+
+Franczyzodawca (administrator):
+
+- logowanie i autoryzacja z rolą administratora,
+
+panele właściciela do:
+
+- dodawania, edycji i usuwania produktów (ceny, opisy, zdjęcia),
+
+- zarządzania kontami partnerów (tworzenie kont, nadawanie ról, blokowanie),
+
+- przeglądanie historii zamówień lub pobrań partnerów,
+
+- możliwość eksportu danych (CSV, XLS).
+
+
+Franczyzobiorca:
+
+- logowanie i autoryzacja z rolą partnera,
+
+panele do:
+
+- przeglądanie listy produktów,
+
+- pobieranie materiałów (np. etykiety, instrukcje, PDF),
+
+- składanie zamówień lub generowanie zapotrzebowania,
+
+- przeglądanie historii własnych zamówień lub pobrań.
+
+- możliwość zgłoszenia problemu, usterki, bądź innych rzeczy do administracji
