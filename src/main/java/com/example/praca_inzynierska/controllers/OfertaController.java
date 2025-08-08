@@ -13,6 +13,6 @@ public class OfertaController {
 
     @GetMapping(value = "/sklep-menu")
     public String sklep_menu(){
-        return "franchisee/sklep-menu";
+        return "franchisee/sklep_menu";
     }
 }

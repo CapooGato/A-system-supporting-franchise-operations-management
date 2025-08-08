@@ -2,15 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head :: head('Sklep menu')}"></head>
 <body>
+
   <nav th:replace="~{fragments/navbar :: upper-navbar}"></nav>
 
-  <section class="container mt-5">
+  <section class="mt-8">
+    <img th:src="@{/images/oferta/sklep_menu/bake_with_mix.png}" height="600" class="rounded mx-auto d-block">
+  </section>
 
+  <section class="container mt-4">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
       <div class="col">
         <div class="card my-3 text-center">
-          <img th:src="@{/images/oferta/ciasto_czekoladowe.png}" alt="Ciasto czekoladowe" class="card-img-top">
+          <img th:src="@{/images/oferta/sklep_menu/ciasto_czekoladowe.png}" alt="Ciasto czekoladowe" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Ciasto czekoladowe</h5>
             <p class="card-text">Klasyczne, puszyste ciasto o intensywnym smaku kakao.</p>
@@ -21,7 +25,7 @@
 
       <div class="col">
         <div class="card my-3 text-center">
-          <img th:src="@{/images/oferta/sernik.png}" alt="Sernik" class="card-img-top">
+          <img th:src="@{/images/oferta/sklep_menu/sernik.png}" alt="Sernik" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Sernik tradycyjny</h5>
             <p class="card-text">Kremowy sernik z naturalnego twarogu, idealny na każdą okazję.</p>
@@ -32,7 +36,7 @@
 
       <div class="col">
         <div class="card my-3 text-center">
-          <img th:src="@{/images/oferta/babka_cytrynowa.png}" alt="Babka cytrynowa" class="card-img-top">
+          <img th:src="@{/images/oferta/sklep_menu/babka_cytrynowa.png}" alt="Babka cytrynowa" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Babka cytrynowa</h5>
             <p class="card-text">Orzeźwiające ciasto z nutą cytryny, idealne na wiosnę.</p>
@@ -43,7 +47,7 @@
 
       <div class="col">
         <div class="card my-3 text-center">
-          <img th:src="@{/images/oferta/ciasto_marchewkowe.png}" alt="Ciasto marchewkowe" class="card-img-top">
+          <img th:src="@{/images/oferta/sklep_menu/ciasto_marchewkowe.png}" alt="Ciasto marchewkowe" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title">Ciasto marchewkowe</h5>
             <p class="card-text">Wilgotne ciasto z marchewką, cynamonem i orzechami.</p>
@@ -53,8 +57,8 @@
       </div>
 
     </div>
-
   </section>
+
   <script th:replace="~{fragments/bootstrap_js :: bootstrap_js}"></script>
 </body>
 </html>
