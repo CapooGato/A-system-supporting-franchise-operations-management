@@ -3,9 +3,11 @@
 <head th:replace="~{fragments/head :: head('Dashboard')}"></head>
 <body>
     <nav th:replace="~{fragments/navbar :: upper-navbar}"></nav>
-
-    <img th:src="@{images/index/test.png}" width="1920" alt="franchise dashboard background image" class="img-fluid mx-auto d-block mt-8">
-
+    <main>
+        <img th:src="@{images/index/test.png}" width="1920" alt="franchise dashboard background image"
+             class="img-fluid mx-auto d-block mt-8">
+    </main>
+    <footer th:replace="~{/fragments/footer}"></footer>
     <script th:replace="~{fragments/bootstrap_js :: bootstrap_js}"></script>
 </body>
 </html>

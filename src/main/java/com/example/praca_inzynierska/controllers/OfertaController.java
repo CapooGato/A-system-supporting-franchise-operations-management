@@ -15,4 +15,9 @@ public class OfertaController {
     public String sklep_menu(){
         return "franchisee/sklep_menu";
     }
+
+    @GetMapping(value = "/akcesoria")
+    public String akcesoria(){
+        return "franchisee/akcesoria";
+    }
 }
