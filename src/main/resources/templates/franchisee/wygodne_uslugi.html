@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('Wygodne usługi')}">
+</head>
+<body>
+    <nav th:replace="~{fragments/navbar :: upper-navbar}"></nav>
+    <main>
+        <!-- Banner image -->
+        <section class="my-8">
+            <img th:src="@{/images/oferta/wygodne_uslugi/wygodne_uslugi_banner.png}" height="600"
+                 class="rounded mx-auto d-block">
+        </section>
+        <!-- List of services -->
+        <section class="my-5">
+            <div class="container text-center">
+                <div class="row justify-content-center g-5">
+                    <!-- Calculator -->
+                    <div class="col-2">
+                        <div class="card text-bg-success mb-3" style="max-width: 30rem;">
+                            <div class="card-header text-center">Kalkulator</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Kalkulator marż i kosztów</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile app -->
+                    <div class="col-2">
+                        <div class="card text-bg-success mb-3" style="max-width: 30rem;">
+                            <div class="card-header text-center">Apka</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Aplikacja mobilna dla franczyzobiorców</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer th:replace="~{/fragments/footer}"></footer>
+    <script th:replace="~{fragments/bootstrap_js :: bootstrap_js}"></script>
+</body>
+</html>

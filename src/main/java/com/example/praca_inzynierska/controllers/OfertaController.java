@@ -20,4 +20,9 @@ public class OfertaController {
     public String akcesoria(){
         return "franchisee/akcesoria";
     }
+
+    @GetMapping(value = "/wygodne-uslugi")
+    public String wygodne_uslugi(){
+        return "franchisee/wygodne_uslugi";
+    }
 }
