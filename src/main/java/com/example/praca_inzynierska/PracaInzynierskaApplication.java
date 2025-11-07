@@ -11,3 +11,7 @@ public class PracaInzynierskaApplication {
 	}
 
 }
+
+
+// ./mvnw package; cd target; java -jar pracainzynierska.jar
+// ./mvnw compile -> test -> package -> verify

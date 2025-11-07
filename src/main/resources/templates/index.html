@@ -1,13 +1,194 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/head :: head('Dashboard')}"></head>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Shop - Franczyza piekarni i ciast w proszku</title>
+    <meta name="description" content="Zostań franchisobiorcą Our Shop - sprawdzonej marki ciast w proszku. Pełne wsparcie, wysokie marże, 15 lat doświadczenia. Aplikuj już dziś!">
+    <meta name="keywords" content="franczyza, piekarnia, ciasta w proszku, biznes, Our Shop, piekarnia franczyza">
+
+    <meta property="og:title" content="Our Shop - Franczyza piekarni i ciast w proszku">
+    <meta property="og:description" content="Zostań franchisobiorcą Our Shop - sprawdzonej marki ciast w proszku. Pełne wsparcie, wysokie marże, 15 lat doświadczenia.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
 <body>
-    <nav th:replace="~{fragments/navbar :: upper-navbar}"></nav>
-    <main>
-        <img th:src="@{images/index/test.png}" width="1920" alt="franchise dashboard background image"
-             class="img-fluid mx-auto d-block mt-8">
-    </main>
-    <footer th:replace="~{fragments/footer}"></footer>
-    <script th:replace="~{fragments/bootstrap_js}"></script>
+    <header th:replace="/fragments/header.html"></header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">✨ Rozwijaj się z nami</span>
+                <h1 class="hero-title">Zostań częścią sprawdzonej marki ciast w proszku</h1>
+                <p class="hero-subtitle">Dołącz do sieci Our Shop i zbuduj dochodowy biznes z naszym wsparciem. 15 lat doświadczenia, wysokie marże, pełne szkolenie.</p>
+                <div class="hero-buttons">
+                    <a href="#kontakt" class="btn-golden">Rozpocznij współpracę</a>
+                    <a href="#korzyści" class="btn-outline">Dowiedz się więcej</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="produkty" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nasza oferta produktowa</h2>
+                <p class="section-subtitle">Szeroka gama wysokiej jakości mieszanek do ciast, które zachwycą Twoich klientów</p>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-image">
+                    <img th:src="@{images/index/products-display.jpg}" alt="Produkty Our Shop">
+                </div>
+                <div class="product-cards">
+                    <div class="card">
+                        <h3 class="card-title">Ciasta czekoladowe</h3>
+                        <p class="card-text">Bogata gama mieszanek do ciast czekoladowych - od klasycznych po premium</p>
+                        <ul class="feature-list">
+                            <li><span class="bullet"></span>Łatwe w przygotowaniu</li>
+                            <li><span class="bullet"></span>Wysokiej jakości składniki</li>
+                            <li><span class="bullet"></span>Długa trwałość</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Ciasta owocowe</h3>
+                        <p class="card-text">Świeże i aromatyczne mieszanki z naturalnymi dodatkami owocowymi</p>
+                        <ul class="feature-list">
+                            <li><span class="bullet"></span>Naturalne aromaty</li>
+                            <li><span class="bullet"></span>Bez sztucznych barwników</li>
+                            <li><span class="bullet"></span>Idealne na każdą okazję</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Ciasta specjalne</h3>
+                        <p class="card-text">Unikalne receptury na święta i specjalne okazje</p>
+                        <ul class="feature-list">
+                            <li><span class="bullet"></span>Ekskluzywne przepisy</li>
+                            <li><span class="bullet"></span>Sezonowe smaki</li>
+                            <li><span class="bullet"></span>Wysokie marże</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Franchise Benefits -->
+    <section id="korzyści" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Dlaczego Our Shop?</h2>
+                <p class="section-subtitle">Dajemy Ci wszystkie narzędzia potrzebne do sukcesu w branży piekarniczej</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefits-cards">
+                    <div class="benefit-card">
+                        <div class="benefit-header">
+                            <h3 class="benefit-title">Sprawdzona marka</h3>
+                            <span class="badge">Zaufanie</span>
+                        </div>
+                        <p class="benefit-text">Rozpoznawalna marka z 15-letnim doświadczeniem na rynku</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-header">
+                            <h3 class="benefit-title">Pełne wsparcie</h3>
+                            <span class="badge">Wsparcie 24/7</span>
+                        </div>
+                        <p class="benefit-text">Szkolenia, marketing, doradztwo biznesowe i techniczne</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-header">
+                            <h3 class="benefit-title">Wysokie marże</h3>
+                            <span class="badge">Do 60% marży</span>
+                        </div>
+                        <p class="benefit-text">Konkurencyjne ceny produktów zapewniające rentowność</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-header">
+                            <h3 class="benefit-title">Marketing</h3>
+                            <span class="badge">Kampanie gotowe</span>
+                        </div>
+                        <p class="benefit-text">Gotowe kampanie reklamowe i materiały promocyjne</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-header">
+                            <h3 class="benefit-title">Szkolenia</h3>
+                            <span class="badge">Certyfikat</span>
+                        </div>
+                        <p class="benefit-text">Kompleksowe przeszkolenie z prowadzenia piekarni</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-header">
+                            <h3 class="benefit-title">Ekskluzywność</h3>
+                            <span class="badge">Gwarancja</span>
+                        </div>
+                        <p class="benefit-text">Ochrona terytorialna dla każdego franchisobiorcę</p>
+                    </div>
+                </div>
+                <div class="benefits-image">
+                    <img th:src="@{images/index/shop-interior.jpg}" alt="Wnętrze piekarni Our Shop">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="kontakt" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Zostań naszym partnerem</h2>
+                <p class="section-subtitle">Wypełnij formularz, a nasz doradca biznesowy skontaktuje się z Tobą</p>
+            </div>
+
+            <div class="form-container">
+                <div class="form-card">
+                    <div class="form-header">
+                        <h3 class="form-title">Formularz aplikacyjny</h3>
+                    </div>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Imię i nazwisko *</label>
+                                <input type="text" id="name" name="name" required placeholder="Jan Kowalski">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="jan@przykład.pl">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefon *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+48 123 456 789">
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Miasto *</label>
+                                <input type="text" id="city" name="city" required placeholder="Warszawa">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Doświadczenie w gastronomii</label>
+                            <input type="text" id="experience" name="experience" placeholder="Opisz swoje doświadczenie (opcjonalne)">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Dodatkowe informacje</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Opowiedz nam o swoich planach biznesowych..."></textarea>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn-golden btn-large">Wyślij aplikację</button>
+                        </div>
+                    </form>
+                    <div id="toast" class="toast"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer th:replace="/fragments/footer.html"></footer>
+    <script th:src="@{/js/script.js}"></script>
 </body>
 </html>
