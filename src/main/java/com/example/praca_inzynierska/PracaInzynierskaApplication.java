@@ -1,15 +1,17 @@
 package com.example.praca_inzynierska;
 
+import com.example.praca_inzynierska.services.EmailService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
 
+@EnableAsync
 @SpringBootApplication
 public class PracaInzynierskaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PracaInzynierskaApplication.class, args);
 	}
-
 }
 
 

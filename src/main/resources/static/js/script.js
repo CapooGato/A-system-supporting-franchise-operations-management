@@ -21,8 +21,7 @@ const contactForm = document.getElementById('contactForm');
 const toast = document.getElementById('toast');
 
 contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
+
     // Get form data
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData);
