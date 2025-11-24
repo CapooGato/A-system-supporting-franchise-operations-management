@@ -6,10 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
 @RequestMapping("/api-email")
-@Controller
+@RestController
 public class EmailController {
 
     private final EmailService emailService;
@@ -19,7 +20,7 @@ public class EmailController {
     }
 
     @PostMapping("/send-email")
-    public void sendEmailToServerAddress(EmailFormDto form){
+    public String sendEmailToServerAddress(EmailFormDto form){
 
         String body = String.format("Name & lastname: %s\nEmail: %s\nPhone number: %s\n" +
                 "City: %s\nExperience in gastronomy: %s\nAdditional information: %s\n",
@@ -33,5 +34,6 @@ public class EmailController {
                 body
         );
 
+        return "OK";
     }
 }
