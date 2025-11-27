@@ -2,15 +2,16 @@ package com.example.praca_inzynierska.controllers;
 
 import com.example.praca_inzynierska.services.EmailService;
 import com.example.praca_inzynierska.util.email.EmailFormDto;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 
 @RequestMapping("/api-email")
-@RestController
+@Controller
 public class EmailController {
 
     private final EmailService emailService;
@@ -20,11 +21,16 @@ public class EmailController {
     }
 
     @PostMapping("/send-email")
-    public String sendEmailToServerAddress(EmailFormDto form){
+    public String emailSubmit(@Valid @ModelAttribute("emailForm") EmailFormDto form,
+                              BindingResult result){
 
-        String body = String.format("Name & lastname: %s\nEmail: %s\nPhone number: %s\n" +
-                "City: %s\nExperience in gastronomy: %s\nAdditional information: %s\n",
-                form.getNameAndLastName(), form.getEmail(), form.getPhone(), form.getCity(),
+        if(result.hasErrors()){
+            return "index";
+        }
+
+        String body = String.format("Name & lastname: %s%nEmail: %s%nPhone number: %s%n" +
+                "City: %s%nExperience in gastronomy: %s%nAdditional information: %s%n",
+                form.getNameAndLastName(), form.getEmail(), form.getPhoneNumber(), form.getCity(),
                 form.getExperience(), form.getMessage());
 
         emailService.sendEmail(
@@ -34,6 +40,6 @@ public class EmailController {
                 body
         );
 
-        return "OK";
+        return "redirect:/";
     }
 }

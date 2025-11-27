@@ -1,7 +1,6 @@
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             const headerOffset = 80;
@@ -14,26 +13,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
-});
-
-// Contact form submission
-const contactForm = document.getElementById('contactForm');
-const toast = document.getElementById('toast');
-
-contactForm.addEventListener('submit', function(e) {
-
-    // Get form data
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
-    
-    // Show success toast
-    showToast('Formularz wysłany! Skontaktujemy się z Tobą w ciągu 24 godzin.');
-    
-    // Reset form
-    contactForm.reset();
-    
-    // Here you would normally send the data to a server
-    console.log('Form data:', data);
 });
 
 // Toast notification function

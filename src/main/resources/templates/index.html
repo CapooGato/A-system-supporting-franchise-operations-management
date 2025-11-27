@@ -15,7 +15,7 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <header th:replace="/fragments/header.html"></header>
+    <header th:replace="~{/fragments/header.html}"></header>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-overlay"></div>
@@ -150,34 +150,58 @@
                     <div class="form-header">
                         <h3 class="form-title">Formularz aplikacyjny</h3>
                     </div>
-                    <form th:action="@{/api-email/send-email}" id="contactForm" class="contact-form" method="POST">
+                    <form th:action="@{/api-email/send-email}" th:object="${emailForm}" id="contactForm" class="contact-form" method="post">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nameAndLastName">Imię i nazwisko *</label>
-                                <input type="text" id="nameAndLastName" name="nameAndLastName" required placeholder="Jan Kowalski">
+                                <input type="text" th:field="*{nameAndLastName}" required placeholder="Jan Kowalski">
+                                <p th:if="${#fields.hasErrors('nameAndLastName')}"
+                                    th:errors="*{nameAndLastName}"
+                                    class="error">
+                                </p>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" required placeholder="jan@przykład.pl">
+                                <input type="email" th:field="*{email}" required placeholder="jan@przykład.pl">
+                                <p th:if="${#fields.hasErrors('email')}"
+                                   th:errors="*{email}"
+                                   class="error">
+                                </p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="phone">Telefon *</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="+48 123 456 789">
+                                <label for="phoneNumber">Telefon *</label>
+                                <input type="tel" th:field="*{phoneNumber}" required placeholder="+48 123 456 789">
+                                <p th:if="${#fields.hasErrors('phoneNumber')}"
+                                   th:errors="*{phoneNumber}"
+                                   class="error">
+                                </p>
                             </div>
                             <div class="form-group">
                                 <label for="city">Miasto *</label>
-                                <input type="text" id="city" name="city" required placeholder="Warszawa">
+                                <input type="text" th:field="*{city}" required placeholder="Warszawa">
+                                <p th:if="${#fields.hasErrors('city')}"
+                                   th:errors="*{city}"
+                                   class="error">
+                                </p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="experience">Doświadczenie w gastronomii</label>
-                            <input type="text" id="experience" name="experience" placeholder="Opisz swoje doświadczenie (opcjonalne)">
+                            <input type="text" th:field="*{experience}" placeholder="Opisz swoje doświadczenie (opcjonalne)">
+                            <p th:if="${#fields.hasErrors('experience')}"
+                               th:errors="*{experience}"
+                               class="error">
+                            </p>
                         </div>
                         <div class="form-group">
                             <label for="message">Dodatkowe informacje</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Opowiedz nam o swoich planach biznesowych..."></textarea>
+                            <textarea th:field="*{message}" rows="5" placeholder="Opowiedz nam o swoich planach biznesowych..."></textarea>
+                            <p th:if="${#fields.hasErrors('message')}"
+                               th:errors="*{message}"
+                               class="error">
+                            </p>
                         </div>
                         <div class="form-submit">
                             <button type="submit" class="btn-golden btn-large">Wyślij aplikację</button>
@@ -188,7 +212,7 @@
             </div>
         </div>
     </section>
-    <footer th:replace="/fragments/footer.html"></footer>
+    <footer th:replace="~{/fragments/footer.html}"></footer>
     <script th:src="@{/js/script.js}"></script>
 </body>
 </html>
