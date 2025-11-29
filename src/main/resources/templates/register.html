@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rejestracja dla franczyzobiorców Our Shop - ciasta w proszku">
+    <title>Rejestracja - Our Shop Franczyza</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Our Shop</div>
+                <nav class="nav">
+                    <a th:href="@{/}">Strona główna</a>
+                    <a th:href="@{/login}">Logowanie</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-page">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <h1 class="auth-title">Rejestracja</h1>
+                    <p class="auth-subtitle">Dołącz do sieci franczyzowej Our Shop</p>
+
+                    <form id="registerForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">Imię i nazwisko</label>
+                            <input
+                                    type="text"
+                                    id="fullName"
+                                    name="fullName"
+                                    class="form-input"
+                                    placeholder="Jan Kowalski"
+                                    required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Adres email</label>
+                            <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    class="form-input"
+                                    placeholder="twoj@email.pl"
+                                    required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Hasło</label>
+                            <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    class="form-input"
+                                    placeholder="••••••••"
+                                    minlength="8"
+                                    required
+                            >
+                            <small class="form-hint">Minimum 8 znaków</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword" class="form-label">Potwierdź hasło</label>
+                            <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    name="confirmPassword"
+                                    class="form-input"
+                                    placeholder="••••••••"
+                                    required
+                            >
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            Zarejestruj się
+                        </button>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p>Masz już konto? <a th:href="@{/login}" class="auth-link">Zaloguj się</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Our Shop</h3>
+                    <p class="footer-text">Najlepsze ciasta w proszku na rynku</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Kontakt</h4>
+                    <p class="footer-text">Email: kontakt@ourshop.pl</p>
+                    <p class="footer-text">Tel: +48 123 456 789</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Our Shop. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

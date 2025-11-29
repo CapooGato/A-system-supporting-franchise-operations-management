@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Złóż zamówienie - Our Shop Franchising</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">Our Shop</div>
+            <nav class="nav">
+                <a th:href="@{/}">Strona główna</a>
+                <a th:href="@{/products}">Produkty</a>
+                <a th:href="@{/order}" class="active">Zamów</a>
+                <a th:href="@{/my-orders}">Moje zamówienia</a>
+                <a href="login.html" class="btn-primary">Panel</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section" style="margin-top: 100px;">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">Złóż zamówienie</h1>
+                <p class="section-subtitle">Wybierz produkty i określ ilości</p>
+            </div>
+
+            <div class="order-container">
+                <div class="order-products">
+                    <h2 class="order-section-title">Wybierz produkty</h2>
+                    <div id="orderProductsList" class="order-products-list">
+                        <!-- Products will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="order-summary-container">
+                    <div class="order-summary card">
+                        <h3 class="card-title">Podsumowanie</h3>
+                        <div id="orderSummary" class="order-summary-items">
+                            <p class="order-empty-message">Dodaj produkty do zamówienia</p>
+                        </div>
+                        <div class="order-summary-total">
+                            <span>Suma:</span>
+                            <span id="orderTotal" class="order-total-price">0.00 zł</span>
+                        </div>
+                        <div class="order-notes">
+                            <label for="orderNotes">Uwagi do zamówienia:</label>
+                            <textarea id="orderNotes" rows="3" placeholder="Dodatkowe informacje..."></textarea>
+                        </div>
+                        <button id="submitOrder" class="btn-golden btn-large" style="width: 100%;">
+                            Złóż zamówienie
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Our Shop</h3>
+                    <p class="footer-text">Najlepsza mąka do ciast dla Twojej piekarni</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Kontakt</h3>
+                    <a href="mailto:info@ourshop.pl" class="footer-link">info@ourshop.pl</a>
+                    <a href="tel:+48123456789" class="footer-link">+48 123 456 789</a>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Nawigacja</h3>
+                    <a th:href="@{/products}" class="footer-link">Produkty</a>
+                    <a th:href="@{/order}" class="footer-link">Zamów</a>
+                    <a th:href="@{/my-orders}" class="footer-link">Moje zamówienia</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Our Shop. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script th:src="@{/js/shop.js}"></script>
+</body>
+</html>

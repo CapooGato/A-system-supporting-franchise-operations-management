@@ -1,4 +1,4 @@
-package com.example.praca_inzynierska.util.email;
+package com.example.praca_inzynierska.dtos;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;

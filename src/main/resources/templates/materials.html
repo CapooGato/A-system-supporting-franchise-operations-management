@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiały - Our Shop Franczyza</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>Our Shop</h1>
+                <span class="nav-subtitle">Panel Franczyzobiorcy</span>
+            </div>
+            <div class="nav-links">
+                <a th:href="@{/dashboard}" class="nav-link">Panel główny</a>
+                <a th:href="@{/products}" class="nav-link">Produkty</a>
+                <a th:href="@{/materials}" class="nav-link active">Materiały</a>
+                <a th:href="@{/order}" class="nav-link">Nowe zamówienie</a>
+                <a th:href="@{/my-orders}" class="nav-link">Moje zamówienia</a>
+                <a th:href="@{/support}" class="nav-link">Wsparcie</a>
+                <button class="btn-outline" id="logoutBtn" style="margin-left: 1rem;">Wyloguj</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="page-container">
+            <h1 class="page-title">Materiały do pobrania</h1>
+            <p class="page-subtitle">Etykiety, instrukcje, dokumenty i inne materiały dla franczyzobiorców</p>
+
+            <div class="filters-section card">
+                <div class="filter-group">
+                    <label for="material-category-filter">Kategoria:</label>
+                    <select id="material-category-filter" class="filter-select">
+                        <option value="all">Wszystkie</option>
+                        <option value="labels">Etykiety</option>
+                        <option value="instructions">Instrukcje</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="documents">Dokumenty</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="material-search-filter">Szukaj:</label>
+                    <input type="text" id="material-search-filter" class="filter-input" placeholder="Wpisz nazwę materiału...">
+                </div>
+            </div>
+
+            <div class="materials-grid" id="materialsList">
+                <!-- Dynamically loaded -->
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script th:src="@{/js/auth.js}"></script>
+    <script th:src="@{/js/shop.js}"></script>
+</body>
+</html>

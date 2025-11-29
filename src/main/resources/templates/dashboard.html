@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Główny - Our Shop Franczyza</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>Our Shop</h1>
+                <span class="nav-subtitle">Panel Franczyzobiorcy</span>
+            </div>
+            <div class="nav-links">
+                <a th:href="@{/dashboard}" class="nav-link active">Panel główny</a>
+                <a th:href="@{/products}" class="nav-link">Produkty</a>
+                <a th:href="@{/materials}" class="nav-link">Materiały</a>
+                <a th:href="@{/order}" class="nav-link">Nowe zamówienie</a>
+                <a th:href="@{/my-orders}" class="nav-link" >Moje zamówienia</a>
+                <a th:href="@{/support}" class="nav-link">Wsparcie</a>
+                <button class="btn-outline" id="logoutBtn" style="margin-left: 1rem;">Wyloguj</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h1 class="page-title">Witaj w panelu franczyzobiorcy</h1>
+                <p class="dashboard-subtitle">Zarządzaj swoją franczyzą Our Shop</p>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card card">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-content">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Aktywne zamówienia</div>
+                    </div>
+                </div>
+                <div class="stat-card card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <div class="stat-value">28</div>
+                        <div class="stat-label">Zrealizowane</div>
+                    </div>
+                </div>
+                <div class="stat-card card">
+                    <div class="stat-icon">📄</div>
+                    <div class="stat-content">
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">Materiały</div>
+                    </div>
+                </div>
+                <div class="stat-card card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-content">
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Produkty</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-section card">
+                    <h2 class="section-title">Szybkie akcje</h2>
+                    <div class="quick-actions">
+                        <a th:href="@{/order}" class="quick-action-btn">
+                            <span class="action-icon">🛒</span>
+                            <span class="action-text">Nowe zamówienie</span>
+                        </a>
+                        <a th:href="@{/products}" class="quick-action-btn">
+                            <span class="action-icon">📋</span>
+                            <span class="action-text">Lista produktów</span>
+                        </a>
+                        <a th:href="@{/materials}" class="quick-action-btn">
+                            <span class="action-icon">📥</span>
+                            <span class="action-text">Pobierz materiały</span>
+                        </a>
+                        <a th:href="@{/support}" class="quick-action-btn">
+                            <span class="action-icon">💬</span>
+                            <span class="action-text">Zgłoś problem</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="dashboard-section card">
+                    <h2 class="section-title">Ostatnie zamówienia</h2>
+                    <div class="recent-orders" id="recentOrders">
+                        <!-- Dynamically loaded -->
+                    </div>
+                    <a th:href="@{/my-orders}" class="btn-outline" style="margin-top: 1rem; display: block; text-align: center;">
+                        Zobacz wszystkie zamówienia
+                    </a>
+                </div>
+
+                <div class="dashboard-section card">
+                    <h2 class="section-title">Najnowsze materiały</h2>
+                    <div class="recent-materials" id="recentMaterials">
+                        <!-- Dynamically loaded -->
+                    </div>
+                    <a th:href="@{/materials}" class="btn-outline" style="margin-top: 1rem; display: block; text-align: center;">
+                        Przeglądaj wszystkie materiały
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script th:src="@{/js/auth.js}"></script>
+    <script th:src="@{/js/shop.js}"></script>
+</body>
+</html>

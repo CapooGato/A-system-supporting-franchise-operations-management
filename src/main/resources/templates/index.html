@@ -15,7 +15,22 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <header th:replace="~{/fragments/header.html}"></header>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Our Shop</div>
+                <nav class="nav">
+                    <a href="#produkty">O nas</a>
+                    <a href="products.html">Produkty</a>
+                    <a th:href="@{/order}">Zamów</a>
+                    <a th:href="@{/my-orders}">Moje zamówienia</a>
+                    <a th:href="@{/login}" class="btn-golden" style="margin-left: 20px;">Logowanie</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-overlay"></div>
@@ -42,7 +57,7 @@
 
             <div class="product-grid">
                 <div class="product-image">
-                    <img th:src="@{images/index/products-display.jpg}" alt="Produkty Our Shop">
+                    <img th:src="@{/images/index/products-display.jpg}" alt="Produkty Our Shop">
                 </div>
                 <div class="product-cards">
                     <div class="card">
@@ -131,7 +146,7 @@
                     </div>
                 </div>
                 <div class="benefits-image">
-                    <img th:src="@{images/index/shop-interior.jpg}" alt="Wnętrze piekarni Our Shop">
+                    <img th:src="@{/images/index/shop-interior.jpg}" alt="Wnętrze piekarni Our Shop">
                 </div>
             </div>
         </div>

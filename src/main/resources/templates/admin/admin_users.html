@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarządzanie Partnerami - Our Shop Admin</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a th:href="@{/}" class="logo">Our Shop Admin</a>
+            <ul class="nav-menu">
+                <li><a th:href="@{/admin/admin-dashboard}">Dashboard</a></li>
+                <li><a th:href="@{/admin/admin-products}">Produkty</a></li>
+                <li><a th:href="@{/admin/admin-users}" class="active">Partnerzy</a></li>
+                <li><a th:href="@{/admin/admin-orders}">Zamówienia</a></li>
+                <li><a href="#" id="logoutBtn">Wyloguj</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Zarządzanie Partnerami</h1>
+            <button class="btn btn-primary" id="addUserBtn">+ Dodaj partnera</button>
+        </div>
+
+        <div class="filters">
+            <input type="text" id="searchUser" placeholder="Szukaj partnera..." class="search-input">
+            <select id="roleFilter" class="filter-select">
+                <option value="">Wszystkie role</option>
+                <option value="admin">Administrator</option>
+                <option value="franchisee">Franczyzobiorca</option>
+                <option value="partner">Partner</option>
+            </select>
+            <select id="statusFilter" class="filter-select">
+                <option value="">Wszystkie statusy</option>
+                <option value="active">Aktywny</option>
+                <option value="blocked">Zablokowany</option>
+            </select>
+            <button class="btn btn-secondary" id="exportUsersBtn">Eksportuj CSV</button>
+        </div>
+
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Imię i nazwisko</th>
+                    <th>Rola</th>
+                    <th>Status</th>
+                    <th>Data rejestracji</th>
+                    <th>Akcje</th>
+                </tr>
+                </thead>
+                <tbody id="usersTable">
+                <tr>
+                    <td colspan="7" class="text-center">Ładowanie...</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal dodawania/edycji użytkownika -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Dodaj partnera</h2>
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="userEmail">Email *</label>
+                    <input type="email" id="userEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPassword">Hasło *</label>
+                    <input type="password" id="userPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="userFirstName">Imię *</label>
+                    <input type="text" id="userFirstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="userLastName">Nazwisko *</label>
+                    <input type="text" id="userLastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="userRole">Rola *</label>
+                    <select id="userRole" required>
+                        <option value="">Wybierz rolę</option>
+                        <option value="franchisee">Franczyzobiorca</option>
+                        <option value="partner">Partner</option>
+                        <option value="admin">Administrator</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="userCompany">Firma</label>
+                    <input type="text" id="userCompany">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="userActive" checked>
+                        Konto aktywne
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Zapisz</button>
+                    <button type="button" class="btn btn-secondary" id="cancelUserBtn">Anuluj</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script th:src="@{/js/admin.js}"></script>
+</body>
+</html>

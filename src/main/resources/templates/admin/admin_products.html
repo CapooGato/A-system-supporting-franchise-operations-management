@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarządzanie Produktami - Our Shop Admin</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a th:href="@{/}" class="logo">Our Shop Admin</a>
+            <ul class="nav-menu">
+                <li><a th:href="@{/admin/admin-dashboard}">Dashboard</a></li>
+                <li><a th:href="@{/admin/admin-products}" class="active">Produkty</a></li>
+                <li><a th:href="@{/admin/admin-users}">Partnerzy</a></li>
+                <li><a th:href="@{/admin/admin-orders}">Zamówienia</a></li>
+                <li><a href="#" id="logoutBtn">Wyloguj</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Zarządzanie Produktami</h1>
+            <button class="btn btn-primary" id="addProductBtn">+ Dodaj produkt</button>
+        </div>
+
+        <div class="filters">
+            <input type="text" id="searchProduct" placeholder="Szukaj produktu..." class="search-input">
+            <select id="categoryFilter" class="filter-select">
+                <option value="">Wszystkie kategorie</option>
+                <option value="cakes">Ciasta</option>
+                <option value="breads">Pieczywo</option>
+                <option value="pastries">Ciastka</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nazwa</th>
+                    <th>Kategoria</th>
+                    <th>Cena</th>
+                    <th>Dostępność</th>
+                    <th>Akcje</th>
+                </tr>
+                </thead>
+                <tbody id="productsTable">
+                <tr>
+                    <td colspan="6" class="text-center">Ładowanie...</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal dodawania/edycji produktu -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Dodaj produkt</h2>
+            <form id="productForm">
+                <div class="form-group">
+                    <label for="productName">Nazwa produktu *</label>
+                    <input type="text" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Kategoria *</label>
+                    <select id="productCategory" required>
+                        <option value="">Wybierz kategorię</option>
+                        <option value="cakes">Ciasta</option>
+                        <option value="breads">Pieczywo</option>
+                        <option value="pastries">Ciastka</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Cena (PLN) *</label>
+                    <input type="number" id="productPrice" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Opis</label>
+                    <textarea id="productDescription" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="productImage">URL zdjęcia</label>
+                    <input type="text" id="productImage" placeholder="https://example.com/image.jpg">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="productAvailable" checked>
+                        Produkt dostępny
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Zapisz</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Anuluj</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script th:src="@{/js/admin.js}"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Administracyjny - Our Shop</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a th:href="@{/}" class="logo">Our Shop Admin</a>
+      <ul class="nav-menu">
+        <li><a th:href="@{/admin/admin-dashboard}" class="active">Dashboard</a></li>
+        <li><a th:href="@{/admin/admin-products}">Produkty</a></li>
+        <li><a th:href="@{/admin/admin-users}">Partnerzy</a></li>
+        <li><a th:href="@{/admin/admin-orders}">Zamówienia</a></li>
+        <li><a href="#" id="logoutBtn">Wyloguj</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <h1>Panel Administracyjny</h1>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>Aktywni Partnerzy</h3>
+        <p class="stat-number" id="totalPartners">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Produkty w ofercie</h3>
+        <p class="stat-number" id="totalProducts">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Zamówienia (miesiąc)</h3>
+        <p class="stat-number" id="monthlyOrders">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Obrót (miesiąc)</h3>
+        <p class="stat-number" id="monthlyRevenue">0 PLN</p>
+      </div>
+    </div>
+
+    <div class="quick-actions">
+      <h2>Szybkie akcje</h2>
+      <div class="action-buttons">
+        <a th:href="@{/admin-products}" class="btn btn-primary">Dodaj produkt</a>
+        <a th:href="@{/admin-users}" class="btn btn-primary">Dodaj partnera</a>
+        <a th:href="@{/admin-orders}" class="btn btn-secondary">Zobacz zamówienia</a>
+      </div>
+    </div>
+
+    <div class="recent-section">
+      <h2>Ostatnie zamówienia</h2>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Partner</th>
+            <th>Data</th>
+            <th>Produkty</th>
+            <th>Wartość</th>
+            <th>Status</th>
+          </tr>
+          </thead>
+          <tbody id="recentOrdersTable">
+          <tr>
+            <td colspan="6" class="text-center">Ładowanie...</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script th:src="@{/js/admin.js}"></script>
+</body>
+</html>

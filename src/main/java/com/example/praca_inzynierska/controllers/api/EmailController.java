@@ -1,7 +1,7 @@
-package com.example.praca_inzynierska.controllers;
+package com.example.praca_inzynierska.controllers.api;
 
 import com.example.praca_inzynierska.services.EmailService;
-import com.example.praca_inzynierska.util.email.EmailFormDto;
+import com.example.praca_inzynierska.dtos.EmailFormDto;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -34,8 +34,6 @@ public class EmailController {
                 form.getExperience(), form.getMessage());
 
         emailService.sendEmail(
-                EmailService.serverEmail,
-                EmailService.sendingEmail,
                 "Franchisee",
                 body
         );

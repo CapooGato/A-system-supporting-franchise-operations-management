@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wsparcie - Our Shop Franczyza</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>Our Shop</h1>
+                <span class="nav-subtitle">Panel Franczyzobiorcy</span>
+            </div>
+            <div class="nav-links">
+                <a th:href="@{/dashboard}" class="nav-link">Panel główny</a>
+                <a th:href="@{/products}" class="nav-link">Produkty</a>
+                <a th:href="@{/materials}" class="nav-link">Materiały</a>
+                <a th:href="@{/order}" class="nav-link">Nowe zamówienie</a>
+                <a th:href="@{/my-orders}" class="nav-link">Moje zamówienia</a>
+                <a th:href="@{/support}" class="nav-link active">Wsparcie</a>
+                <button class="btn-outline" id="logoutBtn" style="margin-left: 1rem;">Wyloguj</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="page-container" style="max-width: 800px;">
+            <h1 class="page-title">Centrum wsparcia</h1>
+            <p class="page-subtitle">Zgłoś problem, usterkę lub zadaj pytanie do administracji</p>
+
+            <div class="support-tabs">
+                <button class="support-tab active" onclick="switchTab('report')">Zgłoś problem</button>
+                <button class="support-tab" onclick="switchTab('history')">Historia zgłoszeń</button>
+            </div>
+
+            <div id="reportTab" class="support-content">
+                <form id="supportForm" class="support-form card">
+                    <div class="form-group">
+                        <label for="issueType">Typ zgłoszenia:</label>
+                        <select id="issueType" class="form-input" required>
+                            <option value="">Wybierz typ...</option>
+                            <option value="technical">Problem techniczny</option>
+                            <option value="order">Problem z zamówieniem</option>
+                            <option value="product">Problem z produktem</option>
+                            <option value="delivery">Problem z dostawą</option>
+                            <option value="other">Inne</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueSubject">Temat:</label>
+                        <input type="text" id="issueSubject" class="form-input" placeholder="Krótki opis problemu" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueDescription">Szczegółowy opis:</label>
+                        <textarea id="issueDescription" class="form-input" rows="6" placeholder="Opisz dokładnie problem..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issuePriority">Priorytet:</label>
+                        <select id="issuePriority" class="form-input" required>
+                            <option value="low">Niski</option>
+                            <option value="medium" selected>Średni</option>
+                            <option value="high">Wysoki</option>
+                            <option value="urgent">Pilny</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width: 100%;">Wyślij zgłoszenie</button>
+                </form>
+            </div>
+
+            <div id="historyTab" class="support-content" style="display: none;">
+                <div class="support-tickets" id="ticketsList">
+                    <!-- Dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script th:src="@{/js/auth.js}"></script>
+    <script th:src="@{/js/shop.js}"></script>
+</body>
+</html>
