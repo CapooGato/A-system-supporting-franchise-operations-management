@@ -197,7 +197,6 @@ if (document.getElementById('productsTable')) {
     };
 
     form.onsubmit = (e) => {
-        e.preventDefault();
         const productData = {
             name: document.getElementById('productName').value,
             category: document.getElementById('productCategory').value,
@@ -314,7 +313,6 @@ if (document.getElementById('usersTable')) {
     };
 
     form.onsubmit = (e) => {
-        e.preventDefault();
         const userData = {
             email: document.getElementById('userEmail').value,
             firstName: document.getElementById('userFirstName').value,
@@ -447,7 +445,6 @@ if (document.getElementById('ordersTable')) {
 const logoutBtns = document.querySelectorAll('#logoutBtn');
 logoutBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        e.preventDefault();
         if (confirm('Czy na pewno chcesz się wylogować?')) {
             window.location.href = 'login.html';
         }

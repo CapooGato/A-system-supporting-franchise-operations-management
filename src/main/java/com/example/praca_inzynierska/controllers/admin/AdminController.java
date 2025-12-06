@@ -8,22 +8,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AdminController {
 
-    @GetMapping("/admin-dashboard")
+    @GetMapping("/dashboard")
     public String adminDashboardPage(){
         return "admin/admin_dashboard";
     }
 
-    @GetMapping("/admin-products")
+    @GetMapping("/products")
     public String adminProductsPage(){
         return "admin/admin_products";
     }
 
-    @GetMapping("/admin-users")
+    @GetMapping("/users")
     public String adminUsersPage(){
         return "admin/admin_users";
     }
 
-    @GetMapping("/admin-orders")
+    @GetMapping("/orders")
     public String adminOrdersPage(){
         return "admin/admin_orders";
     }

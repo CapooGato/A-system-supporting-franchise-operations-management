@@ -15,7 +15,7 @@
                 <div class="logo">Our Shop</div>
                 <nav class="nav">
                     <a th:href="@{/}">Strona główna</a>
-                    <a th:href="@{login}" class="active">Logowanie</a>
+                    <a th:href="@{/login}" class="active">Logowanie</a>
                 </nav>
             </div>
         </div>
@@ -52,15 +52,15 @@
                                     required
                             >
                         </div>
-
-                        <button type="submit" class="btn btn-primary btn-large">
+                        <!-- TODO: return view my user role, either admin-dashboard or dashboard for regular users -->
+                        <a th:href="@{/dashboard}" type="submit" class="btn btn-primary btn-large">
                             Zaloguj się
-                        </button>
+                        </a>
                     </form>
-
+                    <!-- REGISTER PAGE IS SUPPOSED TO BE SENT MY EMAIL
                     <div class="auth-footer">
                         <p>Nie masz konta? <a th:href="@{/register}" class="auth-link">Zarejestruj się</a></p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -75,8 +75,7 @@
                 </div>
                 <div class="footer-section">
                     <h4 class="footer-title">Kontakt</h4>
-                    <p class="footer-text">Email: kontakt@ourshop.pl</p>
-                    <p class="footer-text">Tel: +48 123 456 789</p>
+                    <p class="footer-text">Email: u1361693913@gmail.com</p>
                 </div>
             </div>
             <div class="footer-bottom">

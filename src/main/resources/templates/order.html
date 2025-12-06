@@ -8,18 +8,23 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <header class="header">
-        <div class="container header-content">
-            <div class="logo">Our Shop</div>
-            <nav class="nav">
-                <a th:href="@{/}">Strona główna</a>
-                <a th:href="@{/products}">Produkty</a>
-                <a th:href="@{/order}" class="active">Zamów</a>
-                <a th:href="@{/my-orders}">Moje zamówienia</a>
-                <a href="login.html" class="btn-primary">Panel</a>
-            </nav>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>Our Shop</h1>
+                <span class="nav-subtitle">Panel Franczyzobiorcy</span>
+            </div>
+            <div class="nav-links">
+                <a th:href="@{/dashboard}" class="nav-link">Panel główny</a>
+                <a th:href="@{/products}" class="nav-link">Produkty</a>
+                <a th:href="@{/materials}" class="nav-link">Materiały</a>
+                <a th:href="@{/order}" class="nav-link active">Nowe zamówienie</a>
+                <a th:href="@{/my-orders}" class="nav-link">Moje zamówienia</a>
+                <a th:href="@{/support}" class="nav-link">Wsparcie</a>
+                <button class="btn-outline" id="logoutBtn" style="margin-left: 1rem;">Wyloguj</button>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <main class="section" style="margin-top: 100px;">
         <div class="container">
