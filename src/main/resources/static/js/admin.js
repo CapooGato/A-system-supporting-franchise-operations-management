@@ -50,48 +50,6 @@ function formatDate(dateString) {
     return date.toLocaleDateString('pl-PL');
 }
 
-// Eksport do CSV
-function exportToCSV(data, filename) {
-    let csv = '';
-
-    if (filename.includes('orders')) {
-        csv = 'ID,Partner,Email,Data,Wartość,Status\n';
-        data.forEach(order => {
-            csv += `${order.id},${order.partnerName},${order.partnerEmail},${order.date},${order.total},${getStatusText(order.status)}\n`;
-        });
-    } else if (filename.includes('users')) {
-        csv = 'ID,Email,Imię,Nazwisko,Rola,Firma,Status,Data rejestracji\n';
-        data.forEach(user => {
-            csv += `${user.id},${user.email},${user.firstName},${user.lastName},${user.role},${user.company},${user.active ? 'Aktywny' : 'Zablokowany'},${user.registrationDate}\n`;
-        });
-    }
-
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = filename;
-    link.click();
-}
-
-// Eksport do XLS (prosty format HTML)
-function exportToXLS(data, filename) {
-    let html = '<html><head><meta charset="utf-8"></head><body><table border="1">';
-
-    if (filename.includes('orders')) {
-        html += '<tr><th>ID</th><th>Partner</th><th>Email</th><th>Data</th><th>Wartość</th><th>Status</th></tr>';
-        data.forEach(order => {
-            html += `<tr><td>${order.id}</td><td>${order.partnerName}</td><td>${order.partnerEmail}</td><td>${order.date}</td><td>${order.total}</td><td>${getStatusText(order.status)}</td></tr>`;
-        });
-    }
-
-    html += '</table></body></html>';
-
-    const blob = new Blob([html], { type: 'application/vnd.ms-excel' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = filename;
-    link.click();
-}
 
 // Admin Dashboard
 if (document.getElementById('totalPartners')) {
@@ -265,10 +223,6 @@ if (document.getElementById('usersTable')) {
         renderUsers(document.getElementById('searchUser').value, document.getElementById('roleFilter').value, e.target.value);
     });
 
-    document.getElementById('exportUsersBtn').addEventListener('click', () => {
-        exportToCSV(mockUsers, 'partnerzy.csv');
-    });
-
     // Modal
     const modal = document.getElementById('userModal');
     const addBtn = document.getElementById('addUserBtn');
@@ -390,13 +344,7 @@ if (document.getElementById('ordersTable')) {
         renderOrders();
     });
 
-    document.getElementById('exportCSVBtn').addEventListener('click', () => {
-        exportToCSV(filteredOrders, 'zamowienia.csv');
-    });
 
-    document.getElementById('exportXLSBtn').addEventListener('click', () => {
-        exportToXLS(filteredOrders, 'zamowienia.xls');
-    });
 
     document.getElementById('prevPage').addEventListener('click', () => {
         if (currentPage > 1) {
