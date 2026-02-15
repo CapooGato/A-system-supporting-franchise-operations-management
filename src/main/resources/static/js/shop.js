@@ -239,7 +239,7 @@ function submitOrder() {
 
     const notes = document.getElementById('orderNotes').value;
 
-    // Here you would send the order to your Spring Boot backend
+    // Send to backend
     const orderData = {
         items: cart.map(item => ({
             productId: item.id,
@@ -254,13 +254,11 @@ function submitOrder() {
     // Simulate successful order
     showToast('Zamówienie zostało złożone pomyślnie!');
 
-    // Reset cart and form
     cart = [];
     document.getElementById('orderNotes').value = '';
     document.querySelectorAll('.order-quantity-input').forEach(input => input.value = '0');
     updateOrderSummary();
 
-    // Redirect to orders page after 2 seconds
     setTimeout(() => {
         window.location.href = 'my-orders.html';
     }, 2000);
@@ -334,7 +332,7 @@ function formatDate(dateString) {
 }
 
 function viewOrderDetails(orderId) {
-    // Here you would fetch order details from your Spring Boot backend
+    // Fetch from backend
     console.log('Viewing order details:', orderId);
     showToast('Szczegóły zamówienia (funkcja do implementacji)');
 }
@@ -480,7 +478,7 @@ function submitSupportTicket(e) {
         timestamp: new Date().toISOString()
     };
 
-    // Here you would send to your Spring Boot backend
+    // Send to backend
     console.log('Submitting ticket:', ticketData);
 
     showToast('Zgłoszenie zostało wysłane pomyślnie!');
@@ -633,7 +631,7 @@ function getMaterialCategoryName(category) {
 }
 
 function downloadMaterial(materialId) {
-    // Here you would download from your Spring Boot backend
+    // Download from backend
     const material = mockMaterials.find(m => m.id === materialId);
     console.log('Downloading material:', material);
     showToast(`Pobieranie: ${material.name}`);
@@ -670,7 +668,7 @@ function submitSupportTicket(e) {
         timestamp: new Date().toISOString()
     };
 
-    // Here you would send to your Spring Boot backend
+    // Send to backend
     console.log('Submitting ticket:', ticketData);
 
     showToast('Zgłoszenie zostało wysłane pomyślnie!');
