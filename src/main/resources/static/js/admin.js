@@ -5,6 +5,7 @@ let allUsers = [];
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('usersTable')) {
         loadUsers();
+
     }
 });
 
@@ -235,11 +236,9 @@ if (document.getElementById('productsTable')) {
 }
 
 // --- ADMIN ORDERS PAGE ---
-// 1. Zmienna globalna (musi być POZA ifem, żeby viewOrderDetails ją widziało)
 let allAdminOrders = [];
 
 if (document.getElementById('ordersTable')) {
-    // 2. Wywołujemy funkcję od razu
     renderOrders();
 
     async function renderOrders() {
@@ -315,6 +314,92 @@ document.querySelectorAll('#logoutBtn').forEach(btn => {
     });
 });
 
+
+// --- ADMIN USERS PAGE LOGIC ---
+let currentUserId = null; // Śledzimy, czy edytujemy, czy dodajemy
+
+document.addEventListener('DOMContentLoaded', () => {
+    const userModal = document.getElementById('userModal');
+    const userForm = document.getElementById('userForm');
+    const addUserBtn = document.getElementById('addUserBtn');
+    const cancelUserBtn = document.getElementById('cancelUserBtn');
+    const closeBtn = document.querySelector('#userModal .close');
+
+    // Otwieranie modala dla nowego partnera
+    if (addUserBtn) {
+        addUserBtn.onclick = () => {
+            currentUserId = null;
+            document.getElementById('modalTitle').textContent = 'Dodaj partnera';
+            userForm.reset();
+            document.getElementById('userPassword').required = true; // Hasło wymagane tylko przy dodawaniu
+            userModal.style.display = 'block';
+        };
+    }
+
+    // Zamykanie modala
+    if (cancelUserBtn) cancelUserBtn.onclick = () => userModal.style.display = 'none';
+    if (closeBtn) closeBtn.onclick = () => userModal.style.display = 'none';
+
+    // Obsługa zapisu (Dodawanie i Edycja)
+    if (userForm) {
+        userForm.onsubmit = async (e) => {
+            e.preventDefault();
+
+            const userData = {
+                email: document.getElementById('userEmail').value,
+                password: document.getElementById('userPassword').value,
+                firstName: document.getElementById('userFirstName').value,
+                lastName: document.getElementById('userLastName').value,
+                role: document.getElementById('userRole').value,
+                company: document.getElementById('userCompany').value,
+                active: document.getElementById('userActive').checked
+            };
+
+            const method = currentUserId ? 'PUT' : 'POST';
+            const url = currentUserId ? `${API_BASE_URL}/users/${currentUserId}` : `${API_BASE_URL}/users`;
+
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userData)
+                });
+
+                if (response.ok) {
+                    userModal.style.display = 'none';
+                    loadUsers(); // Odśwież tabelę partnerów
+                } else {
+                    alert("Wystąpił błąd podczas zapisu partnera.");
+                }
+            } catch (error) {
+                console.error("Błąd zapisu:", error);
+            }
+        };
+    }
+});
+
+// Funkcja edycji przypisana do window, aby onclick w HTML ją widział
+window.editUser = (id) => {
+    const user = allUsers.find(u => u.id == id);
+    if (user) {
+        currentUserId = id;
+        const userModal = document.getElementById('userModal');
+
+        document.getElementById('modalTitle').textContent = 'Edytuj partnera';
+        document.getElementById('userEmail').value = user.email;
+        document.getElementById('userFirstName').value = user.firstName;
+        document.getElementById('userLastName').value = user.lastName;
+        document.getElementById('userRole').value = user.role || 'franchisee';
+        document.getElementById('userCompany').value = user.company || '';
+        document.getElementById('userActive').checked = user.active;
+
+        // Przy edycji hasło nie jest wymagane (chyba że chcesz je zmieniać)
+        document.getElementById('userPassword').required = false;
+        document.getElementById('userPassword').value = "";
+
+        userModal.style.display = 'block';
+    }
+};
 // Zamykanie modali
 window.onclick = (event) => {
     if (event.target.className === 'modal') {
@@ -326,3 +411,5 @@ document.querySelectorAll('.close, #cancelBtn').forEach(btn => {
         this.closest('.modal').style.display = 'none';
     }
 });
+
+

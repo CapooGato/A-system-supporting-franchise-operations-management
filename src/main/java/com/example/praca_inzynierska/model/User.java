@@ -22,14 +22,11 @@ public class User {
     private String email;
 
     private String firstName;
-
     private String lastName;
-
+    @Column(nullable = false)
+    private String password;
     private String role;
-
     private String company;
-
     private boolean active;
-
     private LocalDate registrationDate;
 }

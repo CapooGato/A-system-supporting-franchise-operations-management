@@ -3,6 +3,7 @@ package com.example.praca_inzynierska.service.impl;
 import com.example.praca_inzynierska.model.User;
 import com.example.praca_inzynierska.repository.UserRepository;
 import com.example.praca_inzynierska.service.UserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,5 +35,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+
+    public ResponseEntity<User> updateUser(Long id, User userDetails) {
+        return userRepository.findById(id)
+                .map(user -> {
+                    user.setFirstName(userDetails.getFirstName());
+                    user.setLastName(userDetails.getLastName());
+                    user.setEmail(userDetails.getEmail());
+                    user.setRole(userDetails.getRole()); // Pamiętaj o roli!
+                    user.setCompany(userDetails.getCompany());
+                    user.setActive(userDetails.isActive());
+
+                    // Aktualizujemy hasło tylko jeśli zostało podane w formularzu
+                    if (userDetails.getPassword() != null && !userDetails.getPassword().isEmpty()) {
+                        user.setPassword(userDetails.getPassword());
+                    }
+
+                    return ResponseEntity.ok(userRepository.save(user));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 }
