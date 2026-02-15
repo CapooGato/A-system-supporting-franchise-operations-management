@@ -1,6 +1,6 @@
-package com.example.praca_inzynierska.controllers.web;
+package com.example.praca_inzynierska.controller.web;
 
-import com.example.praca_inzynierska.dtos.EmailFormDto;
+import com.example.praca_inzynierska.dto.EmailFormDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

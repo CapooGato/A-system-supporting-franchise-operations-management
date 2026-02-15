@@ -1,4 +1,4 @@
-package com.example.praca_inzynierska.services;
+package com.example.praca_inzynierska.service;
 
 import org.springframework.scheduling.annotation.Async;
 

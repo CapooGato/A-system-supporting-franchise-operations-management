@@ -1,4 +1,4 @@
-package com.example.praca_inzynierska.controllers.admin;
+package com.example.praca_inzynierska.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

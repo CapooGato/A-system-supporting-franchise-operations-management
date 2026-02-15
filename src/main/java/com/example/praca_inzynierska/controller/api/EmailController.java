@@ -1,7 +1,7 @@
-package com.example.praca_inzynierska.controllers.api;
+package com.example.praca_inzynierska.controller.api;
 
-import com.example.praca_inzynierska.services.EmailService;
-import com.example.praca_inzynierska.dtos.EmailFormDto;
+import com.example.praca_inzynierska.service.EmailService;
+import com.example.praca_inzynierska.dto.EmailFormDto;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

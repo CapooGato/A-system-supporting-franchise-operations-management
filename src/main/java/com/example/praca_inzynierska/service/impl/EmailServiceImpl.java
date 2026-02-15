@@ -1,6 +1,6 @@
-package com.example.praca_inzynierska.services.impl;
+package com.example.praca_inzynierska.service.impl;
 
-import com.example.praca_inzynierska.services.EmailService;
+import com.example.praca_inzynierska.service.EmailService;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
